@@ -60,7 +60,7 @@ const Header = () => {
       }} expand="lg" className="text-white">
         <Container>
           <Navbar.Brand as={Link} to="/" className="text-white">
-            <b></b>AdaptHome
+            <b></b>TechInfinite
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

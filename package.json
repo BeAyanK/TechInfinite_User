@@ -1,5 +1,5 @@
 {
-  "name": "adapthome",
+  "name": "techinfinite",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -20,7 +20,7 @@
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.6.1",
-    "adapthome": "file:",
+    "techinfinite": "file:",
     "swiper": "^11.2.8"
   },
   "devDependencies": {

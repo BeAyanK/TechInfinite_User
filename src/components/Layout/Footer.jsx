@@ -9,8 +9,8 @@ const Footer = () => {
         <Container style={{textAlign:"center"}}>
         <Row>
           <Col md={4}>
-            <h4>AdaptHome</h4>
-            <p>&copy;{new Date().getFullYear()} AdaptHome. All rights reserved. </p>
+            <h4>TechInfinite</h4>
+            <p>&copy;{new Date().getFullYear()} TechInfinite. All rights reserved. </p>
           </Col>
           <Col md={4}>
             <h4>Pages</h4>
@@ -22,7 +22,7 @@ const Footer = () => {
           </Col>
           <Col md={4}>
             <h4>Contact</h4>
-            <p>Email: <a href="mailto:support@adapthome.com" style={{ color: "white", textDecoration: "none" }}>support@adapthome.com</a></p>
+            <p>Email: <a href="mailto:support@techinfinite.com" style={{ color: "white", textDecoration: "none" }}>support@techinfinite.com</a></p>
             <p>Phone: +123-456-7890</p>
           </Col>
 

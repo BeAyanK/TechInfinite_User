@@ -103,7 +103,7 @@ const Auth = ({ show }) => {
   return (
     <Modal show={show} onHide={closeModalHandler} centered>
       <Modal.Header closeButton>
-        <Modal.Title>AdaptHome {isLogin ? "Login" : "Sign Up"}</Modal.Title>
+        <Modal.Title>TechInfinite {isLogin ? "Login" : "Sign Up"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={submitHandler}>
