@@ -103,7 +103,7 @@ const Auth = ({ show }) => {
   return (
     <Modal show={show} onHide={closeModalHandler} centered>
       <Modal.Header closeButton>
-        <Modal.Title>{isLogin ? "Login" : "Sign Up"}</Modal.Title>
+        <Modal.Title>AdaptHome {isLogin ? "Login" : "Sign Up"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={submitHandler}>
@@ -146,7 +146,7 @@ const Auth = ({ show }) => {
 
           <div className="d-grid gap-2">
             {!isLoading ? (
-              <Button type="submit">
+              <Button type="submit" variant="success">
                 {isLogin ? "Login" : "Create Account"}
               </Button>
             ) : (
@@ -159,7 +159,7 @@ const Auth = ({ show }) => {
         <Button variant="secondary" onClick={closeModalHandler}>
           Close
         </Button>
-        <Button variant="primary" onClick={switchAuthModeHandler}>
+        <Button variant="dark" onClick={switchAuthModeHandler}>
           {isLogin ? "Create new account" : "Login with existing account"}
         </Button>
       </Modal.Footer>

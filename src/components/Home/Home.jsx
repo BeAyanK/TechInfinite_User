@@ -8,7 +8,7 @@ const Home = () => {
   const [selectedCategory, setSelectedCategory] = useState(null);
   return (
     <>
-      <h3 className="text-center my-4">Home Page</h3>
+      <h3 className="text-center my-4">Our Top Picks</h3>
 
       <HeroCarousel />
       <section className="my-5">
