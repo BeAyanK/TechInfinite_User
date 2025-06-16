@@ -78,7 +78,7 @@ const Auth = ({ show }) => {
         })
       );
 
-      dispatch(fetchAddress(data.localId)) //fetchinng address
+      dispatch(fetchAddress(data.localId)) //fetching address
 
       dispatch(authActions.closeLoginModal());
       navigate("/", { replace: true });
@@ -103,7 +103,7 @@ const Auth = ({ show }) => {
   return (
     <Modal show={show} onHide={closeModalHandler} centered>
       <Modal.Header closeButton>
-        <Modal.Title>TechInfinite {isLogin ? "Login" : "Sign Up"}</Modal.Title>
+        <Modal.Title>Tech-Infinite {isLogin ? "Login" : "Sign Up"}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form onSubmit={submitHandler}>

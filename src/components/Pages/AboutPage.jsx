@@ -4,11 +4,11 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 const About = () => {
   return (
     <Container className="my-5">
-      <h1 className="text-center mb-4">About TechInfinite</h1>
+      <h1 className="text-center mb-4">About Tech-Infinite</h1>
 
       <Row className="mb-5">
         <Col md={8} className="mx-auto text-center">
-          <h3>Welcome to TechInfinite</h3>
+          <h3>Welcome to Tech-Infinite</h3>
           <p className="lead">
             Your one-stop online store for the latest gadgets, stylish fashion,
             home essentials, and more. We bring you quality products at
@@ -23,7 +23,7 @@ const About = () => {
             <Card.Body>
               <Card.Title>Our Mission</Card.Title>
               <Card.Text>
-                At TechInfinite, our mission is to make online shopping easy,
+                At Tech-Infinite, our mission is to make online shopping easy,
                 enjoyable, and affordable. We curate a wide range of products
                 to meet your everyday needs, backed by excellent customer
                 service and fast shipping.
@@ -48,7 +48,7 @@ const About = () => {
 
       <Row className="mb-5">
         <Col>
-          <h3 className="text-center mb-4">Why Choose TechInfinite?</h3>
+          <h3 className="text-center mb-4">Why Choose Tech-Infinite?</h3>
           <Row>
             <Col md={4}>
               <Card className="text-center shadow-sm mb-4">
@@ -123,7 +123,7 @@ const About = () => {
             variant="success"
             onClick={() => alert("Thanks for your interest! Stay tuned.")}
           >
-            Join The TechInfinite Family
+            Join The Tech-Infinite Family
           </Button>
         </Col>
       </Row>

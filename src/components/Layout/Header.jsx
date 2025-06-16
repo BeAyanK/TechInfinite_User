@@ -60,7 +60,7 @@ const Header = () => {
       }} expand="lg" className="text-white">
         <Container>
           <Navbar.Brand as={Link} to="/" className="text-white">
-            <b></b>TechInfinite
+            <b></b>Tech-Infinite
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
@@ -83,9 +83,9 @@ const Header = () => {
               <Nav.Link as={Link} to="/about" className="text-white">
                 About
               </Nav.Link>
-              <Nav.Link as={Link} to="/orders" className="text-white">
+              {isLoggedIn && <Nav.Link as={Link} to="/orders" className="text-white">
                 Orders
-              </Nav.Link>
+              </Nav.Link>}
 
               <Button style={{ backgroundColor: "transparent", border: "none" }} className="text-white ms-2" onClick={() => dispatch(toggleCart())}>
                 <i className="bi bi-cart"></i>

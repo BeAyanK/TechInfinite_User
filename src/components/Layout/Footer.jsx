@@ -9,8 +9,8 @@ const Footer = () => {
         <Container style={{textAlign:"center"}}>
         <Row>
           <Col md={4}>
-            <h4>TechInfinite</h4>
-            <p>&copy;{new Date().getFullYear()} TechInfinite. All rights reserved. </p>
+            <h4>Tech-Infinite</h4>
+            <p>&copy;{new Date().getFullYear()} Tech-Infinite. All rights reserved. </p>
           </Col>
           <Col md={4}>
             <h4>Pages</h4>
