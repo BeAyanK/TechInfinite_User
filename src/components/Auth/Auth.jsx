@@ -146,7 +146,7 @@ const Auth = ({ show }) => {
 
           <div className="d-grid gap-2">
             {!isLoading ? (
-              <Button type="submit" variant="success">
+              <Button type="submit" variant="primary">
                 {isLogin ? "Login" : "Create Account"}
               </Button>
             ) : (

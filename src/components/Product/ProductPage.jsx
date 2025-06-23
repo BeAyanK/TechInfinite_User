@@ -71,7 +71,7 @@ const ProductPage = () => {
                 </Button>
                 <Link to={`/product/${product.id}`}>
                   <Button
-                    variant="success"
+                    variant="primary"
                     onClick={() => {
                       dispatch(addToCart(product)); // Add product to cart
                       dispatch(toggleCart()); // Open the cart drawer

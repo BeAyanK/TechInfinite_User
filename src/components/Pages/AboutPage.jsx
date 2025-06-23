@@ -53,7 +53,7 @@ const About = () => {
             <Col md={4}>
               <Card className="text-center shadow-sm mb-4">
                 <Card.Body>
-                  <i className="bi bi-box-seam fs-1 mb-3 text-success"></i>
+                  <i className="bi bi-box-seam fs-1 mb-3 text-primary"></i>
                   <Card.Title>Vast Product Selection</Card.Title>
                   <Card.Text>
                     From electronics and apparel to home decor and accessories — find everything in one place.
@@ -64,7 +64,7 @@ const About = () => {
             <Col md={4}>
               <Card className="text-center shadow-sm mb-4">
                 <Card.Body>
-                  <i className="bi bi-tag fs-1 mb-3 text-success"></i>
+                  <i className="bi bi-tag fs-1 mb-3 text-primary"></i>
                   <Card.Title>Best Prices Guaranteed</Card.Title>
                   <Card.Text>
                     We work hard to offer competitive pricing and great deals every day.
@@ -75,7 +75,7 @@ const About = () => {
             <Col md={4}>
               <Card className="text-center shadow-sm mb-4">
                 <Card.Body>
-                  <i className="bi bi-shield-lock fs-1 mb-3 text-success"></i>
+                  <i className="bi bi-shield-lock fs-1 mb-3 text-primary"></i>
                   <Card.Title>Secure Shopping</Card.Title>
                   <Card.Text>
                     Your data and payments are protected with industry-leading security.
@@ -89,7 +89,7 @@ const About = () => {
             <Col md={6}>
               <Card className="text-center shadow-sm mb-4">
                 <Card.Body>
-                  <i className="bi bi-truck fs-1 mb-3 text-success"></i>
+                  <i className="bi bi-truck fs-1 mb-3 text-primary"></i>
                   <Card.Title>Fast & Reliable Delivery</Card.Title>
                   <Card.Text>
                     Get your orders on time, every time.
@@ -100,7 +100,7 @@ const About = () => {
             <Col md={6}>
               <Card className="text-center shadow-sm mb-4">
                 <Card.Body>
-                  <i className="bi bi-headset fs-1 mb-3 text-success"></i>
+                  <i className="bi bi-headset fs-1 mb-3 text-primary"></i>
                   <Card.Title>Customer Support</Card.Title>
                   <Card.Text>
                     Our friendly support team is here to help you 24/7.
@@ -120,7 +120,7 @@ const About = () => {
             work tirelessly to bring you the best shopping experience possible.
           </p>
           <Button
-            variant="success"
+            variant="primary"
             onClick={() => alert("Thanks for your interest! Stay tuned.")}
           >
             Join The Tech-Infinite Family

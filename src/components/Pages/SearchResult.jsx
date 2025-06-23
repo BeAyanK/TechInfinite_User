@@ -52,7 +52,7 @@ const SearchResults = () => {
                   <p className="card-text small">
                     {product.description?.slice(0, 100) || "No description"}...
                   </p>
-                  <Link to={`/product/${product.id}`} className="btn btn-success btn-sm">
+                  <Link to={`/product/${product.id}`} className="btn btn-primary btn-sm">
                     View Details
                   </Link>
                 </div>

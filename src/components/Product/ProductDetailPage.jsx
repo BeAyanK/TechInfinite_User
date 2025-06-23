@@ -53,7 +53,7 @@ const ProductDetailPage = () => {
               Add to Cart
             </Button>
             <Button
-              variant="success"
+              variant="primary"
               onClick={() => {
                 dispatch(addToCart(product));
                 dispatch(toggleCart());

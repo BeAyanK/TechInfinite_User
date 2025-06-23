@@ -4,7 +4,7 @@ import { Col, Container, Row } from 'react-bootstrap'
 const Footer = () => {
   return (
     <footer style={{
-    background: 'linear-gradient(135deg, #28a745, #20c997)'
+    background: 'linear-gradient(135deg, rgba(0, 150, 255, 1) 0%, rgba(9, 9, 121, 1) 65%, rgba(2, 0, 36, 1) 100%)'
   }} className=" text-light py-4  mt-1">
         <Container style={{textAlign:"center"}}>
         <Row>

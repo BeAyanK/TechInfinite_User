@@ -56,7 +56,7 @@ const Header = () => {
   return (
     <>
       <Navbar style={{
-        background: 'linear-gradient(135deg, #28a745, #20c997)'
+        background: 'linear-gradient(135deg, rgb(0, 150, 255)  0%, rgba(9, 9, 121, 1) 65%, rgba(2, 0, 36, 1) 100%)'
       }} expand="lg" className="text-white">
         <Container>
           <Navbar.Brand as={Link} to="/" className="text-white">

@@ -137,7 +137,7 @@ const Cart = () => {
               {!showPayment && (
                 <Button
                   className="w-100 mt-2"
-                  variant="success"
+                  variant="primary"
                   onClick={() => setShowPayment(true)}
                 >
                   Checkout
@@ -173,7 +173,7 @@ const Cart = () => {
                   </Form>
                   <Button
                     className="w-100 mt-3"
-                    variant="success"
+                    variant="primary"
                     onClick={placeOrder}
                   >
                     Buy

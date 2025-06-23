@@ -1,5 +1,4 @@
-import React,{ useEffect, useState } from 'react'
-
+import React, { useEffect, useState } from 'react'
 import axios from "axios";
 import { Table, Button, Image, Container, Spinner, Alert } from "react-bootstrap";
 import { useSelector } from "react-redux";
@@ -7,9 +6,7 @@ import { useSelector } from "react-redux";
 const FIREBASE_ORDERS_URL =
   "https://adapthomeadmin-default-rtdb.asia-southeast1.firebasedatabase.app/orders";
 
-
 const OrdersPage = () => {
-
   const auth = useSelector((state) => state.auth);
   const userEmail = auth?.email || "guest";
 
@@ -17,29 +14,29 @@ const OrdersPage = () => {
   const [loading, setLoading] = useState(false);
   const [cancelling, setCancelling] = useState(null);
 
-  const fetchOrders = async () => {
-    setLoading(true);
-    try {
-      const res = await axios.get(`${FIREBASE_ORDERS_URL}.json`);
-      const data = res.data || {};
-      const loaded = Object.entries(data)
-        .map(([id, order]) => ({
-          id,
-          ...order,
-        }))
-        .filter((order) => order.user === userEmail); 
-
-      setOrders(loaded);
-    } catch (err) {
-      console.error("Error fetching orders:", err);
-    } finally {
-      setLoading(false);
-    }
-  };
-
   useEffect(() => {
+    const fetchOrders = async () => {
+      setLoading(true);
+      try {
+        const res = await axios.get(`${FIREBASE_ORDERS_URL}.json`);
+        const data = res.data || {};
+        const loaded = Object.entries(data)
+          .map(([id, order]) => ({
+            id,
+            ...order,
+          }))
+          .filter((order) => order.user === userEmail); 
+
+        setOrders(loaded);
+      } catch (err) {
+        console.error("Error fetching orders:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchOrders();
-  }, []);
+  }, [userEmail]); // Include userEmail as dependency since it's used in fetchOrders
 
   const handleCancelOrder = async (orderId) => {
     if (!window.confirm("Are you sure you want to cancel this order?")) return;
@@ -48,7 +45,29 @@ const OrdersPage = () => {
       await axios.patch(`${FIREBASE_ORDERS_URL}/${orderId}.json`, {
         status: "cancelled",
       });
-      fetchOrders();
+      
+      // Refetch orders after cancellation
+      const fetchOrders = async () => {
+        setLoading(true);
+        try {
+          const res = await axios.get(`${FIREBASE_ORDERS_URL}.json`);
+          const data = res.data || {};
+          const loaded = Object.entries(data)
+            .map(([id, order]) => ({
+              id,
+              ...order,
+            }))
+            .filter((order) => order.user === userEmail); 
+
+          setOrders(loaded);
+        } catch (err) {
+          console.error("Error fetching orders:", err);
+        } finally {
+          setLoading(false);
+        }
+      };
+      
+      await fetchOrders();
     } catch (err) {
       console.error("Failed to cancel order:", err);
     } finally {
@@ -57,16 +76,16 @@ const OrdersPage = () => {
   };
 
   return (
-     <Container className="my-5">
+    <Container className="my-5">
       <h3 className="mb-4">My Orders</h3>
 
       {loading ? (
         <Spinner animation="border" />
       ) : orders.length === 0 ? (
-        <Alert variant="info">You have no orders.</Alert>
+        <Alert variant="warning">You have no orders.</Alert>
       ) : (
         <Table striped bordered hover responsive>
-          <thead >
+          <thead>
             <tr>
               <th>Status</th>
               <th>Items</th>

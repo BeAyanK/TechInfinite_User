@@ -51,7 +51,7 @@ const HeroCarousel = () => {
           <Carousel.Caption className="bg-dark bg-opacity-50 rounded p-3">
             <h3>{title}</h3>
             <p>{description || 'Great product for your needs'}</p>
-            <Button as={Link} to={`/product/${id}`} variant="success">
+            <Button as={Link} to={`/product/${id}`} variant="primary">
               View Product
             </Button>
           </Carousel.Caption>

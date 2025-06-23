@@ -181,7 +181,7 @@ const Profile = ({ show, onHide }) => {
                 />
               </Form.Group>
 
-              <Button type="submit" variant="success" disabled={updating}>
+              <Button type="submit" variant="primary" disabled={updating}>
                 {updating ? "Updating..." : "Update Profile"}
               </Button>
             </Form>
