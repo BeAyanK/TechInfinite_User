@@ -7,7 +7,7 @@ import {
   decreaseQty,
   clearCart,
 } from "../../store/cartSlice";
-import { Offcanvas, Button, Form } from "react-bootstrap";
+import { Offcanvas, Button, Form, Alert } from "react-bootstrap";
 import axios from "axios";
 
 const Cart = () => {
@@ -67,13 +67,14 @@ const Cart = () => {
       show={isCartOpen}
       onHide={() => dispatch(toggleCart())}
       placement="end"
+      style={{ backgroundColor: "#fbf7f5"}}
     >
       <Offcanvas.Header closeButton>
         <Offcanvas.Title>Your Cart</Offcanvas.Title>
       </Offcanvas.Header>
-      <Offcanvas.Body>
+      <Offcanvas.Body >
         {cartItems.length === 0 ? (
-          <p>Your cart is empty.</p>
+          <Alert variant="warning">You cart is empty.</Alert>
         ) : (
           <>
             {cartItems.map((item) => (

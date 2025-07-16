@@ -1,51 +1,163 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
-import useFetch from "../../hooks/useFetch"; 
+import useFetch from "../../hooks/useFetch";
+import { Card, Button, Row, Col, Container, Alert } from "react-bootstrap";
+import { toggleCart, addToCart } from "../../store/cartSlice";
+import { useDispatch } from "react-redux";
 
 const CategoryPage = () => {
   const { categoryName } = useParams();
   const decodedCategory = decodeURIComponent(categoryName).toLowerCase().trim();
+  const dispatch = useDispatch();
+  
+  const [favorites, setFavorites] = useState(() => {
+    return JSON.parse(localStorage.getItem('favorites')) || {};
+  });
+
+  useEffect(() => {
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  }, [favorites]);
+
+  const toggleFavorite = (productId) => {
+    setFavorites(prev => ({
+      ...prev,
+      [productId]: !prev[productId]
+    }));
+  };
 
   const api = 'https://adapthomeadmin-default-rtdb.asia-southeast1.firebasedatabase.app/products.json';
   const { data, loading, error } = useFetch(api);
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-  if (!data || typeof data !== "object") return null;
+  if (loading) return <p className="text-center mt-5">Loading...</p>;
+  if (error) return <p className="text-center mt-5 text-danger">Error: {error.message}</p>;
+  
+  // Filter products by category
+  const products = data && typeof data === "object" 
+    ? Object.values(data).filter(
+        (product) =>
+          product.category &&
+          product.category.toLowerCase().trim() === decodedCategory
+      )
+    : [];
 
-  const products = Object.values(data).filter(
-    (product) =>
-      product.category &&
-      product.category.toLowerCase().trim() === decodedCategory
-  );
+  if (products.length === 0) {
+    return <Alert variant="warning">No products found in this category.</Alert>;
+  }
 
   return (
-    <div className="container py-4">
+    <Container className="mt-5">
       <h2 className="mb-4 text-capitalize">{decodedCategory} Products</h2>
-      <div className="row">
-        {products.length > 0 ? (
-          products.map((product, index) => (
-            <div className="col-md-4 mb-4" key={index}>
-              <div className="card h-100">
-                <img
-                  src={product.imageUrl || "https://via.placeholder.com/150"}
-                  alt={product.title}
-                  className="card-img-top"
-                  style={{ objectFit: "cover", height: "250px" }}
-                />
-                <div className="card-body">
-                  <h5>{product.title}</h5>
-                  <p>{product.description}</p>
-                  <p className="fw-bold">₹{product.price}</p>
-                </div>
+      <Row>
+        {products.map((product) => (
+          <Col md={4} key={product.id} className="mb-4">
+            <Card style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              }
+            }} className="h-100">
+              <div
+                style={{
+                  position: 'absolute',
+                  top: '10px',
+                  right: '10px',
+                  zIndex: 2,
+                  backgroundColor: 'white',
+                  width: '28px',
+                  height: '28px',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                  cursor: 'pointer'
+                }}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  toggleFavorite(product.id);
+                }}
+              >
+                <svg
+                  width="16"
+                  height="16"
+                  viewBox="0 0 24 24"
+                  fill={favorites[product.id] ? "#ff4081" : "none"}
+                  stroke={favorites[product.id] ? "#ff4081" : "#666"}
+                  strokeWidth="2"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                  />
+                </svg>
               </div>
-            </div>
-          ))
-        ) : (
-          <p>No products found in this category.</p>
-        )}
-      </div>
-    </div>
+              <Link to={`/product/${product.id}`}>
+                <div
+                  style={{
+                    width: "100%",
+                    height: "200px",
+                    overflow: "hidden",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                >
+                  <Card.Img
+                    variant="top"
+                    src={
+                      product.imageUrl?.trim() ||
+                      "https://via.placeholder.com/150"
+                    }
+                    style={{
+                      maxHeight: "100%",
+                      width: "auto",
+                      objectFit: "contain",
+                    }}
+                    className="mt-4"
+                  />
+                </div>
+              </Link>
+              <Card.Body>
+                <Card.Title>
+                  <Link
+                    to={`/product/${product.id}`}
+                    style={{ textDecoration: "none", color: "black" }}
+                  >
+                    {product.title || "No Title"}
+                  </Link>
+                </Card.Title>
+                <h5>₹{product.price || "N/A"}</h5>
+                <Button
+                  variant="secondary"
+                  className="me-2"
+                  onClick={() => dispatch(addToCart(product))}
+                >
+                  Add to Cart
+                </Button>
+                <Link to={`/product/${product.id}`}>
+                  <Button
+                    variant="primary"
+                    onClick={() => {
+                      dispatch(addToCart(product)); // Add product to cart
+                      dispatch(toggleCart()); // Open the cart drawer
+                    }}
+                  >
+                    Buy Now
+                  </Button>
+                </Link>
+              </Card.Body>
+            </Card>
+          </Col>
+        ))}
+      </Row>
+    </Container>
   );
 };
 

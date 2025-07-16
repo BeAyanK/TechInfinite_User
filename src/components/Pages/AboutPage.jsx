@@ -4,11 +4,11 @@ import { Container, Row, Col, Card, Button } from "react-bootstrap";
 const About = () => {
   return (
     <Container className="my-5">
-      <h1 className="text-center mb-4">About Tech-Infinite</h1>
+      <h1 className="text-center mb-4">Welcome to Tech-Infinite</h1>
 
       <Row className="mb-5">
         <Col md={8} className="mx-auto text-center">
-          <h3>Welcome to Tech-Infinite</h3>
+          {/* <h3></h3> */}
           <p className="lead">
             Your one-stop online store for the latest gadgets, stylish fashion,
             home essentials, and more. We bring you quality products at
@@ -19,8 +19,21 @@ const About = () => {
 
       <Row className="mb-5">
         <Col md={6}>
-          <Card className="h-100 shadow-sm">
-            <Card.Body>
+          <Card className="h-100 shadow-sm"
+          style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
+            <Card.Body >
               <Card.Title>Our Mission</Card.Title>
               <Card.Text>
                 At Tech-Infinite, our mission is to make online shopping easy,
@@ -33,7 +46,19 @@ const About = () => {
         </Col>
 
         <Col md={6}>
-          <Card className="h-100 shadow-sm">
+          <Card className="h-100 shadow-sm"style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
             <Card.Body>
               <Card.Title>Our Vision</Card.Title>
               <Card.Text>
@@ -51,7 +76,20 @@ const About = () => {
           <h3 className="text-center mb-4">Why Choose Tech-Infinite?</h3>
           <Row>
             <Col md={4}>
-              <Card className="text-center shadow-sm mb-4">
+              <Card className="text-center shadow-sm mb-4" 
+              style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
                 <Card.Body>
                   <i className="bi bi-box-seam fs-1 mb-3 text-primary"></i>
                   <Card.Title>Vast Product Selection</Card.Title>
@@ -62,7 +100,20 @@ const About = () => {
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="text-center shadow-sm mb-4">
+              <Card className="text-center shadow-sm mb-4"
+              style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
                 <Card.Body>
                   <i className="bi bi-tag fs-1 mb-3 text-primary"></i>
                   <Card.Title>Best Prices Guaranteed</Card.Title>
@@ -73,7 +124,20 @@ const About = () => {
               </Card>
             </Col>
             <Col md={4}>
-              <Card className="text-center shadow-sm mb-4">
+              <Card className="text-center shadow-sm mb-4"
+              style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
                 <Card.Body>
                   <i className="bi bi-shield-lock fs-1 mb-3 text-primary"></i>
                   <Card.Title>Secure Shopping</Card.Title>
@@ -87,7 +151,20 @@ const About = () => {
 
           <Row>
             <Col md={6}>
-              <Card className="text-center shadow-sm mb-4">
+              <Card className="text-center shadow-sm mb-4"
+              style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
                 <Card.Body>
                   <i className="bi bi-truck fs-1 mb-3 text-primary"></i>
                   <Card.Title>Fast & Reliable Delivery</Card.Title>
@@ -98,7 +175,20 @@ const About = () => {
               </Card>
             </Col>
             <Col md={6}>
-              <Card className="text-center shadow-sm mb-4">
+              <Card className="text-center shadow-sm mb-4"
+              style={{
+              boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.2s, box-shadow 0.2s',
+              border: 'none',
+              borderRadius: '8px',
+              cursor: 'pointer',
+              ':hover': {
+                boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+                transform: 'translateY(-2px)'
+              },
+              maxWidth: '90%',
+              margin: '0 auto',
+            }}>
                 <Card.Body>
                   <i className="bi bi-headset fs-1 mb-3 text-primary"></i>
                   <Card.Title>Customer Support</Card.Title>

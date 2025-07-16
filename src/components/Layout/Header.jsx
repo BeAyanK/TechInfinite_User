@@ -40,6 +40,9 @@ const Header = () => {
     dispatch(authActions.openLoginModal());
   };
 
+  const openFavoritesHandler = () => {
+    navigate("/favorites");
+  };
 
   const submitSearchHandler = (e) => {
     e.preventDefault();
@@ -48,16 +51,14 @@ const Header = () => {
       navigate(`/search?q=${encodeURIComponent(searchTerm.trim())}`);
       setSearchTerm("");
     }
-
   };
-
-
 
   return (
     <>
       <Navbar style={{
         background: 'linear-gradient(135deg, rgb(0, 150, 255)  0%, rgba(9, 9, 121, 1) 65%, rgba(2, 0, 36, 1) 100%)'
-      }} expand="lg" className="text-white">
+      }} expand="lg" className="text-white"
+        sticky="top">
         <Container>
           <Navbar.Brand as={Link} to="/" className="text-white">
             <b></b>Tech-Infinite
@@ -87,12 +88,25 @@ const Header = () => {
                 Orders
               </Nav.Link>}
 
-              <Button style={{ backgroundColor: "transparent", border: "none" }} className="text-white ms-2" onClick={() => dispatch(toggleCart())}>
+              <Button
+                    style={{ backgroundColor: "transparent", border: "none" }}
+                    onClick={openFavoritesHandler}
+                    className="text-white ms-2"
+                  >
+                    <i className="bi bi-heart"></i>
+                  </Button>
+
+              <Button
+                style={{ backgroundColor: "transparent", border: "none" }} 
+                className="text-white ms-2" 
+                onClick={() => dispatch(toggleCart())}
+              >
                 <i className="bi bi-cart"></i>
               </Button>
 
               {isLoggedIn ? (
                 <>
+                  
                   <Button
                     style={{ backgroundColor: "transparent", border: "none" }}
                     onClick={openProfileModalHandler}

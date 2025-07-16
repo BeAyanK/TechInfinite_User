@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Carousel, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import useFetch from '../../hooks/useFetch';  
+import useFetch from '../../hooks/useFetch';
 
 const api =
   'https://adapthomeadmin-default-rtdb.asia-southeast1.firebasedatabase.app/products.json';
@@ -39,14 +39,28 @@ const HeroCarousel = () => {
   if (featuredProducts.length === 0) return <p>No featured products available.</p>;
 
   return (
-    <Carousel fade interval={4000} controls={false} indicators pause={false}>
+    <Carousel fade interval={4000} controls={false} indicators pause={false}
+      style={{
+        backgroundColor: '#ffffff',
+        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+        transition: 'transform 0.2s, box-shadow 0.2s',
+        border: 'none',
+        borderRadius: '8px',
+        cursor: 'pointer',
+        ':hover': {
+          boxShadow: '0 6px 12px rgba(0, 0, 0, 0.15)',
+          transform: 'translateY(-2px)'
+        },
+        maxWidth: '90%',
+        margin: '0 auto',
+      }} className="h-100">
       {featuredProducts.map(({ id, title, description, imageUrl }) => (
         <Carousel.Item key={id}>
           <img
             className="d-block w-100"
             src={imageUrl}
             alt={title}
-            style={{ maxHeight: '400px', objectFit: 'contain' ,padding:'20px', backgroundColor:'#fff' }}
+            style={{ maxHeight: '400px', objectFit: 'contain', padding: '20px' }}
           />
           <Carousel.Caption className="bg-dark bg-opacity-50 rounded p-3">
             <h3>{title}</h3>

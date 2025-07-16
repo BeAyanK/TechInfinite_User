@@ -21,8 +21,8 @@ const RootLayout = () => {
       <main
         style={{
           flex: 1,
-          backgroundColor: "#121212",
-          color: "#f1f1f1",
+          backgroundColor: "#fbf7f5",
+          color: "#050505ff",
           paddingTop: "1rem",
           paddingBottom: "1rem",
         }}

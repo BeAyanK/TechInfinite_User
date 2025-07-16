@@ -9,6 +9,7 @@ import ProductDetailPage from "./components/Product/ProductDetailPage";
 import CategoryPage from "./components/Category/CategoryPage";
 import SearchResults from "./components/Pages/SearchResult";
 import CartPersistence from "./components/Cart/CartPersistence";
+import FavoritesPage from "./components/Pages/FavoritesPage";
 
 function App() {
   const router = createBrowserRouter([
@@ -24,6 +25,8 @@ function App() {
         { path: "/product/:id", element: <ProductDetailPage /> },
         { path: "category/:categoryName", element: <CategoryPage /> },
         { path: "/search", element: <SearchResults /> },
+        { path: "/favorites", element: <FavoritesPage /> },
+        { path: "*", element: <h1>404 Not Found</h1> },
       ],
     },
   ]);
